@@ -16,6 +16,9 @@
 		D6859EF82921B47A00940B99 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859EF72921B47A00940B99 /* ApiRequest.swift */; };
 		D6859EFA2921B48100940B99 /* ApiRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859EF92921B48100940B99 /* ApiRequestMock.swift */; };
 		D6859EFC2921B48A00940B99 /* ApiRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859EFB2921B48A00940B99 /* ApiRequestError.swift */; };
+		D6859F002921B6D600940B99 /* RestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */; };
+		D6859F022921B85300940B99 /* RestaurantUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F012921B85300940B99 /* RestaurantUseCase.swift */; };
+		D6859F052921B90F00940B99 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F042921B90F00940B99 /* RestaurantViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		D6859EF72921B47A00940B99 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		D6859EF92921B48100940B99 /* ApiRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestMock.swift; sourceTree = "<group>"; };
 		D6859EFB2921B48A00940B99 /* ApiRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestError.swift; sourceTree = "<group>"; };
+		D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRepository.swift; sourceTree = "<group>"; };
+		D6859F012921B85300940B99 /* RestaurantUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantUseCase.swift; sourceTree = "<group>"; };
+		D6859F042921B90F00940B99 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		D6859EEC2921B34300940B99 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D6859F012921B85300940B99 /* RestaurantUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -124,7 +131,7 @@
 		D6859EED2921B34800940B99 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				D6859EFD2921B5F200940B99 /* Entity */,
+				D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -132,7 +139,7 @@
 		D6859EEE2921B35A00940B99 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D6859EFE2921B5F900940B99 /* Model */,
+				D6859F042921B90F00940B99 /* RestaurantViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -170,20 +177,6 @@
 				D6859EFB2921B48A00940B99 /* ApiRequestError.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		D6859EFD2921B5F200940B99 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		D6859EFE2921B5F900940B99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +255,9 @@
 				D6859EFC2921B48A00940B99 /* ApiRequestError.swift in Sources */,
 				D6859EF82921B47A00940B99 /* ApiRequest.swift in Sources */,
 				D6859EFA2921B48100940B99 /* ApiRequestMock.swift in Sources */,
+				D6859F002921B6D600940B99 /* RestaurantRepository.swift in Sources */,
+				D6859F052921B90F00940B99 /* RestaurantViewModel.swift in Sources */,
+				D6859F022921B85300940B99 /* RestaurantUseCase.swift in Sources */,
 				D6859EDB2921B2C300940B99 /* RestaurantUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

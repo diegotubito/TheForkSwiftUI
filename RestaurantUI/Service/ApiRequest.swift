@@ -41,6 +41,16 @@ open class ApiRequest {
         self.body = try? encoder.encode(body)
     }
     
+    public func apiCall<T: Decodable>(path: String, method: String) async throws -> T {
+        do {
+            let data = try await fetch(path: path, method: method)
+            let decodedRegister = try JSONDecoder().decode(T.self, from: data)
+            return decodedRegister
+        } catch {
+            throw error
+        }
+    }
+    
     public func fetch(path: String, method: String) async throws -> Data {
         guard let url = getUrl(withPath: path) else { fatalError("URL - incorrect format or missing string url") }
         var request = URLRequest(url: url)

@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    var viewModel: RestaurantViewModel = RestaurantViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Group {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("Hello, world!")
+            }
+            .padding()
+        } .task {
+            await viewModel.loadRestaurants()
         }
-        .padding()
     }
 }
 
