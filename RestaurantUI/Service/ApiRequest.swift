@@ -104,20 +104,15 @@ open class ApiRequest {
         return urlComponents.url?.absoluteURL
     }
     
-    func loadImage(stringUrl: String, completion: @escaping (Result<Data, ApiRequestError>) -> Void) {
+    func loadImageNoCache(stringUrl: String) async throws -> Data {
         guard let url = URL(string: stringUrl) else {
-            completion(.failure(.notFound))
-            return
+            throw ApiRequestError.notFound
         }
-        let concurrentPhotoQueue = DispatchQueue(label: "photoQueue", attributes: .concurrent)
-        
-        concurrentPhotoQueue.async(flags: .barrier) {
-            do {
-                let imageData = try Data(contentsOf: url)
-                completion(.success(imageData))
-            } catch {
-                completion(.failure(.imageNotFound))
-            }
+        do {
+            let imageData = try Data(contentsOf: url)
+            return imageData
+        } catch {
+            throw(error)
         }
     }
 }

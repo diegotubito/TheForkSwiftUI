@@ -14,6 +14,6 @@ protocol RestaurantRepositoryProtocol {
 
 class RestaurantRepository: ApiRequest, RestaurantRepositoryProtocol {
     func loadRestaurant() async throws -> RestaurantResult {
-        try await apiCall(path: "TFTest/tst.json", method: "GET")
+        try await apiCall(path: "TFTest/test.json", method: "GET")
     }
 }

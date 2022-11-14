@@ -19,6 +19,10 @@
 		D6859F002921B6D600940B99 /* RestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */; };
 		D6859F022921B85300940B99 /* RestaurantUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F012921B85300940B99 /* RestaurantUseCase.swift */; };
 		D6859F052921B90F00940B99 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F042921B90F00940B99 /* RestaurantViewModel.swift */; };
+		D6859F072921C06900940B99 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F062921C06900940B99 /* ImageRepository.swift */; };
+		D6859F092921C58B00940B99 /* ImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F082921C58B00940B99 /* ImageUseCase.swift */; };
+		D6859F0C2921C6B500940B99 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0B2921C6B500940B99 /* HomeModel.swift */; };
+		D6859F0E2921C7D500940B99 /* SortUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0D2921C7D500940B99 /* SortUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRepository.swift; sourceTree = "<group>"; };
 		D6859F012921B85300940B99 /* RestaurantUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantUseCase.swift; sourceTree = "<group>"; };
 		D6859F042921B90F00940B99 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		D6859F062921C06900940B99 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		D6859F082921C58B00940B99 /* ImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCase.swift; sourceTree = "<group>"; };
+		D6859F0B2921C6B500940B99 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		D6859F0D2921C7D500940B99 /* SortUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				D6859F012921B85300940B99 /* RestaurantUseCase.swift */,
+				D6859F082921C58B00940B99 /* ImageUseCase.swift */,
+				D6859F0D2921C7D500940B99 /* SortUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -132,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D6859EFF2921B6D600940B99 /* RestaurantRepository.swift */,
+				D6859F062921C06900940B99 /* ImageRepository.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -139,6 +150,7 @@
 		D6859EEE2921B35A00940B99 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6859F0A2921C6AA00940B99 /* Model */,
 				D6859F042921B90F00940B99 /* RestaurantViewModel.swift */,
 			);
 			path = ViewModel;
@@ -177,6 +189,14 @@
 				D6859EFB2921B48A00940B99 /* ApiRequestError.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D6859F0A2921C6AA00940B99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6859F0B2921C6B500940B99 /* HomeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,13 +270,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6859EDD2921B2C300940B99 /* HomeView.swift in Sources */,
+				D6859F0C2921C6B500940B99 /* HomeModel.swift in Sources */,
 				D6859EF22921B3D800940B99 /* String+Extension.swift in Sources */,
 				D6859EF52921B43A00940B99 /* RestaurantModel.swift in Sources */,
 				D6859EFC2921B48A00940B99 /* ApiRequestError.swift in Sources */,
 				D6859EF82921B47A00940B99 /* ApiRequest.swift in Sources */,
 				D6859EFA2921B48100940B99 /* ApiRequestMock.swift in Sources */,
 				D6859F002921B6D600940B99 /* RestaurantRepository.swift in Sources */,
+				D6859F072921C06900940B99 /* ImageRepository.swift in Sources */,
+				D6859F0E2921C7D500940B99 /* SortUseCase.swift in Sources */,
 				D6859F052921B90F00940B99 /* RestaurantViewModel.swift in Sources */,
+				D6859F092921C58B00940B99 /* ImageUseCase.swift in Sources */,
 				D6859F022921B85300940B99 /* RestaurantUseCase.swift in Sources */,
 				D6859EDB2921B2C300940B99 /* RestaurantUIApp.swift in Sources */,
 			);
