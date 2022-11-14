@@ -23,6 +23,7 @@
 		D6859F092921C58B00940B99 /* ImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F082921C58B00940B99 /* ImageUseCase.swift */; };
 		D6859F0C2921C6B500940B99 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0B2921C6B500940B99 /* HomeModel.swift */; };
 		D6859F0E2921C7D500940B99 /* SortUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0D2921C7D500940B99 /* SortUseCase.swift */; };
+		D6BB08CE2922939500E4851B /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB08CD2922939500E4851B /* RestaurantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D6859F082921C58B00940B99 /* ImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCase.swift; sourceTree = "<group>"; };
 		D6859F0B2921C6B500940B99 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		D6859F0D2921C7D500940B99 /* SortUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortUseCase.swift; sourceTree = "<group>"; };
+		D6BB08CD2922939500E4851B /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		D6859EEB2921B34000940B99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6BB08CC2922938500E4851B /* Cell */,
 				D6859EDC2921B2C300940B99 /* HomeView.swift */,
 			);
 			path = View;
@@ -199,6 +202,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D6BB08CC2922938500E4851B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D6BB08CD2922939500E4851B /* RestaurantCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6BB08CE2922939500E4851B /* RestaurantCell.swift in Sources */,
 				D6859EDD2921B2C300940B99 /* HomeView.swift in Sources */,
 				D6859F0C2921C6B500940B99 /* HomeModel.swift in Sources */,
 				D6859EF22921B3D800940B99 /* String+Extension.swift in Sources */,

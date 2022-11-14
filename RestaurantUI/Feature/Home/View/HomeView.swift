@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
-    var viewModel: RestaurantViewModel = RestaurantViewModel()
+    @ObservedObject var viewModel: RestaurantViewModel = RestaurantViewModel()
     
     var body: some View {
-        Group {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(viewModel.model.restaurants) { item in
+                    RestaurantCell(item: item)
+                        .listRowSeparator(.hidden)
+                }
             }
-            .padding()
-        } .task {
+            .listStyle(.plain)
+            .navigationTitle("The Fork: Restaurants")
+        }
+        .task {
             await viewModel.loadRestaurants()
         }
     }

@@ -21,7 +21,7 @@ protocol ImageRepositoryProtocol {
 
 class ImageRepository: ApiRequest, ImageRepositoryProtocol {
     func loadImage(request: ImageEntity.Request) async throws -> ImageResult {
-        return try await loadImage(request: request)
+        return try await loadImageNoCache(stringUrl: request.url)
     }
 }
 

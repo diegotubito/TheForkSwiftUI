@@ -7,11 +7,11 @@
 
 import Foundation
 
-class RestaurantViewModel {
+class RestaurantViewModel: ObservableObject {
     var restaurantUseCase: RestaurantUseCaseProtocol
     var imageUseCase: ImageUseCaseProtocol
     var sortUseCase: SortUseCaseProtocol
-    var model: HomeModel
+    @Published var model: HomeModel
     
     init() {
         restaurantUseCase = RestaurantUseCase()
@@ -23,17 +23,10 @@ class RestaurantViewModel {
     func loadRestaurants() async {
         do {
             let register = try await restaurantUseCase.loadRestaurant()
-            model.restaurants = register.data
-            for (index, _) in self.model.restaurants.enumerated() {
-                self.model.restaurants[index].imageState = .new
-            }
-            self.getIsFavourite()
-            self.sortByName()
-            for i in model.restaurants {
-                print(i.name)
-            }
             DispatchQueue.main.async {
-                //self.onUpdateTableViewList?()
+                self.model.restaurants = self.mapResponse(input: register.data)
+                self.getIsFavourite()
+                self.sortByName()
             }
         } catch {
             DispatchQueue.main.async {
@@ -42,23 +35,37 @@ class RestaurantViewModel {
         }
     }
     
+    func mapResponse(input: [RestaurantModel]) -> [Restaurant] {
+        var mappedList: [Restaurant] = []
+        for restaurant in input {
+            let new = Restaurant(name: restaurant.name, uuid: restaurant.uuid,
+                                 address: Restaurant.Address(street: restaurant.address.street, postalCode: restaurant.address.postalCode, locality: restaurant.address.locality, country: restaurant.address.country),
+                                 aggregateRatings: Restaurant.AgregateRating(thefork: Restaurant.RatingDetail(ratingValue: restaurant.aggregateRatings.thefork.ratingValue, reviewCount: restaurant.aggregateRatings.thefork.reviewCount)),
+                                 mainPhoto: Restaurant.MainPhoto(source: restaurant.mainPhoto?.source ?? "", photo_612x344: restaurant.mainPhoto?.photo_612x344 ?? ""),
+                                 imageState: .new)
+            
+            
+            mappedList.append(new)
+        }
+        return mappedList
+    }
+    
     func loadImage(index: Int) async {
-        print("loading image...")
         switch model.restaurants[index].imageState {
         case .new:
             guard let stringURL = model.restaurants[index].mainPhoto?.photo_612x344 else {
                 model.restaurants[index].imageState = .failed
-                //onUpdatePhoto?(indexPath)
+                DispatchQueue.main.async {
+                    self.model.restaurants[index].imageData = nil
+                }
                 return
             }
             
             do {
                 let imageData = try await imageUseCase.loadImage(url: stringURL)
-                self.model.restaurants[index].imageData = imageData
-                self.model.restaurants[index].imageState = .downloaded
-               
                 DispatchQueue.main.async {
-                    // self.onUpdatePhoto?(indexPath)
+                    self.model.restaurants[index].imageData = imageData
+                    self.model.restaurants[index].imageState = .downloaded
                 }
             } catch {
                 self.model.restaurants[index].imageState = .failed
@@ -84,12 +91,12 @@ class RestaurantViewModel {
     }
     
     func sortByName() {
-        model.restaurants = sortUseCase.sortByName(input: model.restaurants)
+ //       model.restaurants = sortUseCase.sortByName(input: model.restaurants)
  //       onUpdateTableViewList?()
     }
     
     func sortByRating() {
-        model.restaurants = sortUseCase.sortByRating(input: model.restaurants)
+ //       model.restaurants = sortUseCase.sortByRating(input: model.restaurants)
  //       onUpdateTableViewList?()
     }
 }
