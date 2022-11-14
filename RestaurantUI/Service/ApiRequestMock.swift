@@ -15,7 +15,7 @@ class ApiRequestMock {
     
     var error: ApiRequestError?
     
-    func apiCallMocked<T: Decodable>(completionBlock: @escaping (Result<T, ApiRequestError>) -> Void) {
+    func apiCallMocked<T: Decodable>() async throws -> T {
         let filenameFromTestingTarget = ProcessInfo.processInfo.environment["FILENAME"] ?? ""
         if !filenameFromTestingTarget.isEmpty {
             mockFileName = filenameFromTestingTarget
@@ -27,21 +27,18 @@ class ApiRequestMock {
         }
         
         guard let data = readLocalFile(bundle: .main, forName: mockFileName) else {
-            completionBlock(.failure(ApiRequestError.notFound))
-            return
+            throw(ApiRequestError.notFound)
         }
         
         if !success {
-            completionBlock(.failure(.notFound))
-            return
+            throw(ApiRequestError.notFound)
         }
         
         guard let register = try? JSONDecoder().decode(T.self, from: data) else {
-            completionBlock(.failure(.serialize(identifier: String(describing: T.self))))
-            return
+            throw(ApiRequestError.serialize(identifier: String(describing: T.self)))
         }
         
-        completionBlock(.success(register))
+        return register
     }
     
     private func readLocalFile(bundle: Bundle, forName name: String) -> Data? {

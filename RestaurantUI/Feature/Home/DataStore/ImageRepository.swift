@@ -33,6 +33,7 @@ class ImageRepositoryMock: ApiRequestMock, ImageRepositoryProtocol {
 
 class ImageRepositoryFactory {
     static func create() -> ImageRepositoryProtocol {
-        return ImageRepository()
+        let testing = ProcessInfo.processInfo.arguments.contains("-uiTest")
+        return testing ? ImageRepositoryMock() : ImageRepository()
     }
 }

@@ -15,7 +15,7 @@ protocol RestaurantUseCaseProtocol {
 class RestaurantUseCase: RestaurantUseCaseProtocol {
     var repository: RestaurantRepositoryProtocol
     
-    required init(respository: RestaurantRepositoryProtocol = RestaurantRepository() ) {
+    required init(respository: RestaurantRepositoryProtocol = RestaurantRepositoryFactory.create() ) {
         self.repository = respository
     }
     

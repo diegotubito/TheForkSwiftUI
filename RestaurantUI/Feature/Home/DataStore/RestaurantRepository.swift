@@ -17,3 +17,16 @@ class RestaurantRepository: ApiRequest, RestaurantRepositoryProtocol {
         try await apiCall(path: "TFTest/test.json", method: "GET")
     }
 }
+
+class RestaurantRepositoryMock: ApiRequestMock, RestaurantRepositoryProtocol {
+    func loadRestaurant() async throws -> RestaurantResult {
+        try await apiCallMocked()
+    }
+}
+
+class RestaurantRepositoryFactory {
+    static func create() -> RestaurantRepositoryProtocol {
+        let testing = ProcessInfo.processInfo.arguments.contains("-uiTest")
+        return testing ? RestaurantRepositoryMock() : RestaurantRepository()
+    }
+}

@@ -19,6 +19,7 @@ struct HomeView: View {
                         .listRowSeparator(.hidden)
                 }
             }
+            .accessibilityIdentifier("TableViewIdentifier")
             .listStyle(.plain)
             .navigationTitle("RESTAURANT_TITLE".localized)
             .toolbar {
