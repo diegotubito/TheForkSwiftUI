@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  RestaurantUI
+
+  Created by David Gomez on 14/11/2022.
+  
+*/
+"RESTAURANT_TITLE" = "The Fork: Restaurants";
+"RATE" = "Rate";
+"OK_OPTION" = "Ok.";
+"DISMISS_OPTION" = "Dismiss";
+"ERROR_TITLE" = "Error";
+
+// MARK: SORTING OPTIONS
+"SORT_OPTION_TITLE" = "Sort List";
+"SORT_OPTION_SUBTITLE" = "Please Select a Sorting Option";
+"SORT_OPTION_NAME" = "By Name";
+"SORT_OPTION_RATE" = "By Rating";
+
+// MARK: FILE NAMES
+"SORT_IMAGE_NAME" = "sort";
+"FILLED_HEART_IMAGE_NAME" = "filled-heart";
+"EMPTY_HEART_IMAGE_NAME" = "empty-heart";

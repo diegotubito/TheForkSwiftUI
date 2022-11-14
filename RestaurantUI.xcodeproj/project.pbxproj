@@ -24,6 +24,7 @@
 		D6859F0C2921C6B500940B99 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0B2921C6B500940B99 /* HomeModel.swift */; };
 		D6859F0E2921C7D500940B99 /* SortUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6859F0D2921C7D500940B99 /* SortUseCase.swift */; };
 		D6BB08CE2922939500E4851B /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB08CD2922939500E4851B /* RestaurantCell.swift */; };
+		D6F1CD872922BB2D009C38B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6F1CD862922BB2D009C38B2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		D6859F0B2921C6B500940B99 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		D6859F0D2921C7D500940B99 /* SortUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortUseCase.swift; sourceTree = "<group>"; };
 		D6BB08CD2922939500E4851B /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		D6F1CD862922BB2D009C38B2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				D6859EDE2921B2C400940B99 /* Assets.xcassets */,
+				D6F1CD862922BB2D009C38B2 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6859EE22921B2C400940B99 /* Preview Assets.xcassets in Resources */,
+				D6F1CD872922BB2D009C38B2 /* Localizable.strings in Resources */,
 				D6859EDF2921B2C400940B99 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RestaurantUI/Preview Content\"";
+				DEVELOPMENT_TEAM = UEQ3F6V5RW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -451,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RestaurantUI/Preview Content\"";
+				DEVELOPMENT_TEAM = UEQ3F6V5RW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

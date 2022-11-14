@@ -33,7 +33,7 @@ struct RestaurantCell: View {
                     }
                     Spacer()
                     Button { } label: {
-                        Image(isFavorite ? "filled-heart" : "empty-heart")
+                        Image(isFavorite ? "FILLED_HEART_IMAGE_NAME".localized : "EMPTY_HEART_IMAGE_NAME".localized)
                     }
                     .onTapGesture {
                         setFavourite()

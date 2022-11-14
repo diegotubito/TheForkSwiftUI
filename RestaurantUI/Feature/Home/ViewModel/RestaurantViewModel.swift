@@ -25,7 +25,6 @@ class RestaurantViewModel: ObservableObject {
             let register = try await restaurantUseCase.loadRestaurant()
             DispatchQueue.main.async {
                 self.model.restaurants = self.mapResponse(input: register.data)
-                self.getIsFavourite()
                 self.sortByName()
             }
         } catch {
@@ -49,54 +48,12 @@ class RestaurantViewModel: ObservableObject {
         }
         return mappedList
     }
-    
-    func loadImage(index: Int) async {
-        switch model.restaurants[index].imageState {
-        case .new:
-            guard let stringURL = model.restaurants[index].mainPhoto?.photo_612x344 else {
-                model.restaurants[index].imageState = .failed
-                DispatchQueue.main.async {
-                    self.model.restaurants[index].imageData = nil
-                }
-                return
-            }
-            
-            do {
-                let imageData = try await imageUseCase.loadImage(url: stringURL)
-                DispatchQueue.main.async {
-                    self.model.restaurants[index].imageData = imageData
-                    self.model.restaurants[index].imageState = .downloaded
-                }
-            } catch {
-                self.model.restaurants[index].imageState = .failed
-            }
-        case .downloaded, .failed, .none:
-            break
-        }
-    }
-    
-    func setFavourite(indexPath: IndexPath) {
-        let uuid =  model.restaurants[indexPath.row].uuid
-        let currentValue = UserDefaults.standard.object(forKey: uuid) as? Bool ?? false
-        UserDefaults.standard.set(currentValue ? false : true, forKey: uuid)
-        model.restaurants[indexPath.row].isFavourite = currentValue ? false : true
-   //     self.onUpdatePhoto?(indexPath)
-    }
-    
-    private func getIsFavourite() {
-        for (index, restaurant) in model.restaurants.enumerated() {
-            let currentValue = UserDefaults.standard.object(forKey: restaurant.uuid) as? Bool
-            model.restaurants[index].isFavourite = currentValue
-        }
-    }
-    
+
     func sortByName() {
- //       model.restaurants = sortUseCase.sortByName(input: model.restaurants)
- //       onUpdateTableViewList?()
+        model.restaurants = sortUseCase.sortByName(input: model.restaurants)
     }
     
     func sortByRating() {
- //       model.restaurants = sortUseCase.sortByRating(input: model.restaurants)
- //       onUpdateTableViewList?()
+        model.restaurants = sortUseCase.sortByRating(input: model.restaurants)
     }
 }
