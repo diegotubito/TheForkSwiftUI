@@ -20,17 +20,14 @@ class RestaurantViewModel: ObservableObject {
         model = HomeModel(restaurants: [])
     }
     
+    @MainActor
     func loadRestaurants() async {
         do {
             let register = try await restaurantUseCase.loadRestaurant()
-            DispatchQueue.main.async {
-                self.model.restaurants = self.mapResponse(input: register.data)
-                self.sortByName()
-            }
+            self.model.restaurants = self.mapResponse(input: register.data)
+            self.sortByName()
         } catch {
-            DispatchQueue.main.async {
-                print(error.localizedDescription)
-            }
+            print(error.localizedDescription)
         }
     }
     
