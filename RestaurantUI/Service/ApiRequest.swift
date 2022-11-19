@@ -86,9 +86,6 @@ open class ApiRequest {
     private func getUrl(withPath path: String) -> URL? {
         let path = path
         var urlComponents = URLComponents()
-        
-   // https://alanflament.github.io/TFTest/test.json
-        
         urlComponents.scheme = "https"
         urlComponents.host = "alanflament.github.io"
         urlComponents.path = "/\(path)"
